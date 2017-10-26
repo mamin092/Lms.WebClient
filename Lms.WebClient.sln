@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lms.WebClient", "Lms.WebClient\Lms.WebClient.csproj", "{EFD6FD88-5FEE-481E-939A-D5B75BA6AA22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFD6FD88-5FEE-481E-939A-D5B75BA6AA22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD6FD88-5FEE-481E-939A-D5B75BA6AA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD6FD88-5FEE-481E-939A-D5B75BA6AA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD6FD88-5FEE-481E-939A-D5B75BA6AA22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F48E2AE2-495E-40F0-BC28-2C8BE18B96AC}
+	EndGlobalSection
+EndGlobal
