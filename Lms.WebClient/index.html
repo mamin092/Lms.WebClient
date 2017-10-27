@@ -1,10 +1,21 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
 <body>
+<div ui-view></div>
+<script src="Scripts/angular.js"></script>
+<script src="Scripts/angular-resource.min.js"></script>
+<script src="Scripts/angular-ui-router.min.js"></script>
+<!--App-->
 
+    <script src="App/app.config.js"></script>
+    <script src="App/home/HomeControllers.js"></script>
+    <script src="App/student/StudentControllers.js"></script>
+    <script src="App/student/StudentService.js"></script>
+    <script src="App/teacher/TeacherControllers.js"></script>
+    <script src="App/teacher/TeacherService.js"></script>
 </body>
 </html>
