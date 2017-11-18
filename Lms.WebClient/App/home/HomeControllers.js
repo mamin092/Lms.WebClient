@@ -1,12 +1,12 @@
 var App;
 (function (App) {
     var HomeController = /** @class */ (function () {
-        function HomeController(studentService, teacherService) {
+        function HomeController() {
             var self = this;
             console.log("I am in home controller");
             this.now = new Date().toString();
         }
-        HomeController.$inject = ["StudentService"];
+        HomeController.$inject = [];
         return HomeController;
     }());
     angular.module("app").controller("HomeController", (HomeController));

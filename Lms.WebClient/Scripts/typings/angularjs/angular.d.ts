@@ -217,7 +217,6 @@ declare namespace angular {
          * @param controllerConstructor Controller constructor fn (optionally decorated with DI annotations in the array notation).
          */
         controller(name: string, controllerConstructor: Injectable<IControllerConstructor>): IModule;
-        controller(name: "StudentController", controllerConstructor: typeof StudentController);
         controller(object: {[name: string]: Injectable<IControllerConstructor>}): IModule;
         /**
          * Register a new directive with the compiler.

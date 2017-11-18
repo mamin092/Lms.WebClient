@@ -1,41 +1,23 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var App;
 (function (App) {
-    var TeacherService = /** @class */ (function () {
-        function TeacherService(http, q) {
-            this.http = http;
-            this.q = q;
+    var TeacherService = /** @class */ (function (_super) {
+        __extends(TeacherService, _super);
+        function TeacherService(url, baseRepository, q) {
+            return _super.call(this, baseRepository, q, url.teacher) || this;
         }
-        TeacherService.prototype.save = function (teacher) {
-            var self = this;
-            var deffered = self.q.defer();
-            var f1 = function (successresponse) {
-                console.log(successresponse);
-                deffered.resolve(successresponse);
-            };
-            var f2 = function (errorresponse) {
-                console.log(errorresponse);
-                deffered.reject(errorresponse);
-            };
-            self.http.post("http://localhost:30285/api/teacher", teacher).then(f1, f2);
-            return deffered.promise;
-        };
-        TeacherService.prototype.search = function (request) {
-            var self = this;
-            var deffered = self.q.defer();
-            var f1 = function (successresponse) {
-                console.log(successresponse);
-                deffered.resolve(successresponse);
-            };
-            var f2 = function (errorresponse) {
-                console.log(errorresponse);
-                deffered.reject(errorresponse);
-            };
-            self.http.post("http://localhost:30285/api/TeacherQuery", request).then(f1, f2);
-            return deffered.promise;
-        };
-        TeacherService.$inject = ["$http", "$q"];
+        TeacherService.$inject = ["UrlService", "BaseRepository", "$q"];
         return TeacherService;
-    }());
+    }(App.BaseService));
     App.TeacherService = TeacherService;
     angular.module('app').service("TeacherService", TeacherService);
 })(App || (App = {}));

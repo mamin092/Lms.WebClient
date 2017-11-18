@@ -1,0 +1,41 @@
+﻿<div class="section section-signup mvl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 div col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Create  New Course</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form title="userForm" role="form" ng-submit="vm.save()" novalidate>
+
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="Title" ng-model="vm.model.title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="text" class="form-control" id="price" placeholder="Price" ng-model="vm.model.price">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tags"> Tags</label>
+                                <input type="text" class="form-control" id="tags" placeholder="Tags" ng-model="vm.model.tags">
+                            </div>
+
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary btn-block btn-lg">Create</button>
+                            </div>
+                            <div class="text-right">
+                                <a class="btn btn-primary btn-block btn-lg" href="#/student-list">Basck to Course</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

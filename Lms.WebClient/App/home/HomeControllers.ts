@@ -2,8 +2,8 @@
     class HomeController {
         values: string[];
 
-        static $inject = ["StudentService"];
-        constructor(studentService: StudentService, teacherService: TeacherService) {
+        static $inject = [];
+        constructor() {
             let self = this;
             console.log("I am in home controller");
 
