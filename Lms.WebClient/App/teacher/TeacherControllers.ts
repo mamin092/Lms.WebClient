@@ -1,33 +1,34 @@
 ﻿module App {
-
     class TeacherController extends BaseController<Teacher> {
 
         static $inject = ["TeacherService"];
-
         constructor(service: TeacherService) {
             super(service);
-            this.model = new Teacher();
+            this.reset();
         }
 
-      
         reset(): void {
             this.model = new Teacher();
+            this.model.address = "Dhaka";
+            this.model.designation = "Trainer";
+            this.model.email = "t@codecoopers.com";
+            this.model.phone = "123";
         }
     }
 
     angular.module('app').controller("TeacherController", (TeacherController) as any);
 
-    class TeachersController extends BaseController<Teacher> {
+
+    class TeachersController extends BaseController<Teacher>{
+
         reset() {
-            
+
         }
 
         static $inject = ["TeacherService"];
         constructor(service: TeacherService) {
-            super(service);       
+            super(service);
         }
-
-
     }
 
     angular.module('app').controller("TeachersController", (TeachersController) as any);

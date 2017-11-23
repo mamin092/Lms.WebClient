@@ -1,13 +1,12 @@
 ﻿module App {
     export abstract class BaseController<T> {
+
         model: T;
         service: BaseService<T>;
 
         constructor(baseService: BaseService<T>) {
-            console.log('i am in base controller');
-
+            console.log('i m in base controller');
             this.service = baseService;
-
             this.models = [];
             this.searchRequest = new BaseRequestModel();
             this.searchRequest.page = 1;
@@ -22,16 +21,20 @@
                 self.reset();
             };
 
-            let error = function (errorRespon) {
-                console.log(errorRespon);
+            let error = function (errorReason) {
+                console.error(errorReason);
             };
+
             console.log(self.model);
             this.service.save(self.model).then(success, error);
         }
+
         abstract reset();
 
+        // query controller starts here
         searchRequest: BaseRequestModel;
         models: T[];
+
 
         search() {
             var self = this;
@@ -40,8 +43,8 @@
                 self.models = response.data;
             };
 
-            let error = function (errorRespon) {
-                console.error(errorRespon);
+            let error = function (errorReason) {
+                console.error(errorReason);
             };
 
             this.service.search(self.searchRequest).then(success, error);
@@ -52,7 +55,6 @@
             self.searchRequest.orderBy = property;
             self.searchRequest.isAscending = !self.searchRequest.isAscending;
             self.search();
-
         }
 
         next() {
@@ -62,15 +64,11 @@
         }
 
         previous() {
-            var self = this
-
+            var self = this;
             if (self.searchRequest.page > 1) {
                 self.searchRequest.page = self.searchRequest.page - 1;
                 self.search();
             }
-        }   
-
+        }
     }
-
-
 }

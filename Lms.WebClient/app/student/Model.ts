@@ -5,6 +5,7 @@
         }
 
         name: string;
+        address: string;
         phone: string;
         email: string;
     }
@@ -13,6 +14,7 @@
         orderBy: string;
         isAscending: boolean;
         page: number;
+        perPageCount: number;
         keyword: string;
     }
 }

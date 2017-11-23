@@ -1,5 +1,5 @@
 ﻿module App {
-   
+
     class StudentController extends BaseController<Student>{
 
         static $inject = ["StudentService"]
@@ -21,15 +21,15 @@
 
     class StudentsController extends BaseController<Student> {
         reset() {
-           
+
         }
         static $inject = ["StudentService"];
         constructor(service: StudentService) {
             super(service);
-        
+
             console.log('I am student controller constructor')
         }
-      
+
     }
 
     angular.module('app').controller("StudentsController", (StudentsController) as any);

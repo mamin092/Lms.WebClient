@@ -13,10 +13,16 @@ var App;
     var Course = /** @class */ (function (_super) {
         __extends(Course, _super);
         function Course() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            return _super.call(this) || this;
         }
         return Course;
     }(App.Entity));
     App.Course = Course;
+    var LevelOfAudience;
+    (function (LevelOfAudience) {
+        LevelOfAudience[LevelOfAudience["Beginner"] = 0] = "Beginner";
+        LevelOfAudience[LevelOfAudience["Intermediate"] = 1] = "Intermediate";
+        LevelOfAudience[LevelOfAudience["Advance"] = 2] = "Advance";
+    })(LevelOfAudience = App.LevelOfAudience || (App.LevelOfAudience = {}));
 })(App || (App = {}));
 //# sourceMappingURL=Model.js.map

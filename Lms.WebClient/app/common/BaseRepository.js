@@ -1,11 +1,5 @@
 var App;
 (function (App) {
-    var Entity = /** @class */ (function () {
-        function Entity() {
-        }
-        return Entity;
-    }());
-    App.Entity = Entity;
     var BaseRepository = /** @class */ (function () {
         function BaseRepository(http, q) {
             this.http = http;

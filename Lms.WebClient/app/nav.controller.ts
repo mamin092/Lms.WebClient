@@ -1,17 +1,20 @@
-﻿module App {
-    "Use strict";
-    export 
-        class NavController {
+﻿module Vta {
+    "use strict";
+
+    export class NavController {
+
         private stateService: angular.ui.IStateService;
-        isSignedId: boolean;
+        isSignedIn: boolean;
         private rootScopeService: angular.IRootScopeService;
 
         static $inject = [];
+
         constructor() {
             var self = this;
-            self.isSignedId = true;
-
+            self.isSignedIn = true;
         }
+
     }
-    angular.module('app').controller("NavController", (NavController) as any);
+
+    angular.module("app").controller("NavController", (NavController)as any);
 }

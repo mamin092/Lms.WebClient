@@ -1,8 +1,8 @@
 ﻿module App {
     export class TeacherService extends BaseService<Teacher> {
 
-        static $inject = ["UrlService","BaseRepository","$q"];
-        constructor(url:UrlService,baseRepository: BaseRepository,q: angular.IQService) {
+        static $inject = ["UrlService", "BaseRepository", "$q"];
+        constructor(url: UrlService, baseRepository: BaseRepository, q: angular.IQService) {
             super(baseRepository, q, url.teacher);
         }
     }

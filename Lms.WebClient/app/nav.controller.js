@@ -1,15 +1,15 @@
-var App;
-(function (App) {
-    "Use strict";
+var Vta;
+(function (Vta) {
+    "use strict";
     var NavController = /** @class */ (function () {
         function NavController() {
             var self = this;
-            self.isSignedId = true;
+            self.isSignedIn = true;
         }
         NavController.$inject = [];
         return NavController;
     }());
-    App.NavController = NavController;
-    angular.module('app').controller("NavController", (NavController));
-})(App || (App = {}));
+    Vta.NavController = NavController;
+    angular.module("app").controller("NavController", (NavController));
+})(Vta || (Vta = {}));
 //# sourceMappingURL=nav.controller.js.map

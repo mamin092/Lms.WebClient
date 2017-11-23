@@ -22,7 +22,7 @@
                 {
                     url: "/student-entry",
                     templateUrl: "partials/student/student-entry.tpl.html",
-                    controller: "StudentControllers",
+                    controller: "StudentController",
                     controllerAs: "vm"
                 }).state("root.student-list",
                 {

@@ -15,7 +15,7 @@ var App;
         function CourseService(url, baseRepository, q) {
             return _super.call(this, baseRepository, q, url.course) || this;
         }
-        CourseService.$inject = ["UrlService", "BaseRepository", "q"];
+        CourseService.$inject = ["UrlService", "BaseRepository", "$q"];
         return CourseService;
     }(App.BaseService));
     App.CourseService = CourseService;

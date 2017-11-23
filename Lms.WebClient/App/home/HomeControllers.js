@@ -1,12 +1,41 @@
 var App;
 (function (App) {
     var HomeController = /** @class */ (function () {
-        function HomeController() {
+        function HomeController(service) {
             var self = this;
-            console.log("I am in home controller");
-            this.now = new Date().toString();
+            self.courseService = service;
+            self.requestModel = new App.BaseRequestModel();
+            self.requestModel.page = 1;
+            self.requestModel.orderBy = "Title";
+            self.requestModel.isAscending = true;
+            self.requestModel.perPageCount = 3;
+            self.searchText = "";
+            self.searchCourses();
         }
-        HomeController.$inject = [];
+        HomeController.prototype.searchCourses = function () {
+            var self = this;
+            var successCallback = function (response) {
+                self.courses = response.data;
+            };
+            var errorCallback = function (response) {
+                console.error(response);
+            };
+            self.requestModel.keyword = self.searchText;
+            self.courseService.search(self.requestModel).then(successCallback, errorCallback);
+        };
+        HomeController.prototype.next = function () {
+            var self = this;
+            self.requestModel.page = self.requestModel.page + 1;
+            self.searchCourses();
+        };
+        HomeController.prototype.previous = function () {
+            var self = this;
+            if (self.requestModel.page > 1) {
+                self.requestModel.page = self.requestModel.page - 1;
+                self.searchCourses();
+            }
+        };
+        HomeController.$inject = ["CourseService"];
         return HomeController;
     }());
     angular.module("app").controller("HomeController", (HomeController));

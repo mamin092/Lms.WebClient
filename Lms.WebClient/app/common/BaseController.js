@@ -2,7 +2,7 @@ var App;
 (function (App) {
     var BaseController = /** @class */ (function () {
         function BaseController(baseService) {
-            console.log('i am in base controller');
+            console.log('i m in base controller');
             this.service = baseService;
             this.models = [];
             this.searchRequest = new App.BaseRequestModel();
@@ -16,8 +16,8 @@ var App;
                 console.log(response);
                 self.reset();
             };
-            var error = function (errorRespon) {
-                console.log(errorRespon);
+            var error = function (errorReason) {
+                console.error(errorReason);
             };
             console.log(self.model);
             this.service.save(self.model).then(success, error);
@@ -28,8 +28,8 @@ var App;
                 console.log(response);
                 self.models = response.data;
             };
-            var error = function (errorRespon) {
-                console.error(errorRespon);
+            var error = function (errorReason) {
+                console.error(errorReason);
             };
             this.service.search(self.searchRequest).then(success, error);
         };

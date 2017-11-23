@@ -12,31 +12,50 @@ var App;
 (function (App) {
     var CourseController = /** @class */ (function (_super) {
         __extends(CourseController, _super);
-        function CourseController(service) {
+        function CourseController(service, teacherService) {
             var _this = _super.call(this, service) || this;
-            _this.model = new App.Course();
-            console.log('i am in course controller');
+            _this.levelOfAudiences = [];
+            console.log("I am in Course Controller");
+            _this.teacherService = teacherService;
+            _this.reset();
+            _this.loadTeachers();
             return _this;
         }
-        CourseController.prototype.reset = function () {
-            this.model = new App.Course();
+        CourseController.prototype.loadTeachers = function () {
+            var self = this;
+            var successCallback = function (response) {
+                self.teachers = response.data;
+            };
+            var errorCallback = function (error) {
+                console.log(error);
+            };
+            var r = new App.BaseRequestModel();
+            r.page = -1;
+            r.orderBy = "Name";
+            r.isAscending = true;
+            self.teacherService.search(r).then(successCallback, errorCallback);
         };
-        CourseController.$inject = ["CourseService"];
+        CourseController.prototype.addCourse = function () {
+            var self = this;
+            var successCallback = function (response) {
+                alert('Course added successfully');
+                self.reset();
+            };
+            var errorCallback = function (error) {
+                console.log(error);
+            };
+            self.model.teacherId = self.selectedTeacher.id;
+            self.service.save(self.model).then(successCallback, errorCallback);
+        };
+        CourseController.prototype.reset = function () {
+            var self = this;
+            self.model = new App.Course();
+            self.model.publishDate = new Date();
+        };
+        CourseController.$inject = ["CourseService", "TeacherService"];
         return CourseController;
     }(App.BaseController));
+    App.CourseController = CourseController;
     angular.module('app').controller("CourseController", (CourseController));
-    var CoursesController = /** @class */ (function (_super) {
-        __extends(CoursesController, _super);
-        function CoursesController(service) {
-            var _this = _super.call(this, service) || this;
-            console.log('i am in course controller constroctor');
-            return _this;
-        }
-        CoursesController.prototype.reset = function () {
-        };
-        CoursesController.$inject = ["CourseService"];
-        return CoursesController;
-    }(App.BaseController));
-    angular.module('app').controller("CoursesController", (CoursesController));
 })(App || (App = {}));
 //# sourceMappingURL=CourseControllers.js.map

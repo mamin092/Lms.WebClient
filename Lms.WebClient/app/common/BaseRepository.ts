@@ -1,16 +1,5 @@
 ﻿module App {
 
-    export class Entity {
-        constructor() {
-
-        }
-        id: string;
-        createdBy: string;
-        modifiedBy: string;
-        created: Date;
-        modified: Date;
-    }
-
     export class BaseRepository {
 
         baseUrl: string;
@@ -24,7 +13,7 @@
             this.q = q;
             this.baseUrl = "http://localhost:11620/api/";
         }
-        
+
         post(subUrl: string, data: any): angular.IPromise<any> {
             var self = this;
             var deffered = self.q.defer();

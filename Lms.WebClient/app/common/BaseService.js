@@ -20,7 +20,7 @@ var App;
             var self = this;
             var deffered = self.q.defer();
             var successCallback = function (successresponse) {
-                console.log(successCallback);
+                console.log(successresponse);
                 deffered.resolve(successresponse);
             };
             var errorCallback = function (errorResponse) {
@@ -49,7 +49,7 @@ var App;
             self.baseRepository.post(self.commandUrl + "Query", request).then(successCallback, errorCallback);
             return deffered.promise;
         };
-        BaseService.$inject = ["BaseRepositroy", "$q"];
+        BaseService.$inject = ["BaseRepository", "$q"];
         return BaseService;
     }());
     App.BaseService = BaseService;

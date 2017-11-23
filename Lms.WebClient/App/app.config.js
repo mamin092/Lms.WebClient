@@ -15,7 +15,7 @@ var App;
             }).state("root.student-entry", {
                 url: "/student-entry",
                 templateUrl: "partials/student/student-entry.tpl.html",
-                controller: "StudentControllers",
+                controller: "StudentController",
                 controllerAs: "vm"
             }).state("root.student-list", {
                 url: "/student-list",
