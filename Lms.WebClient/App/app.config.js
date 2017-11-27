@@ -42,6 +42,16 @@ var App;
                 templateUrl: "partials/course/course-list.tpl.html",
                 controller: "CoursesController",
                 controllerAs: "vm"
+            }).state("root.content-entry", {
+                url: "/content-entry",
+                templateUrl: "partials/content/content-entry.tpl.html",
+                controller: "ContentController",
+                controllerAs: "vm"
+            }).state("root.enrollment-entry", {
+                url: "/enrollment-entry",
+                templateUrl: "partials/enrollment/enrollment-entry.tpl.html",
+                controller: "EnrollmentController",
+                controllerAs: "vm"
             });
         }
         Configuration.$inject = ["$stateProvider", "$urlRouterProvider"];

@@ -76,10 +76,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="index_prev.html" />
+    <Content Include="partials\content\content-entry.tpl.html" />
     <Content Include="partials\course\course-detail.tpl.html" />
     <Content Include="partials\course\course-entry.tpl.html" />
     <Content Include="partials\course\course-list.tpl.html" />
     <Content Include="partials\course\courses.tpl.html" />
+    <Content Include="partials\enrollment\enrollment-entry.tpl.html" />
     <Content Include="partials\home\home.tpl.html" />
     <Content Include="partials\student\student-entry.tpl.html" />
     <Content Include="partials\student\student-list-backup.tpl.html" />
@@ -129,6 +131,9 @@
     <TypeScriptCompile Include="app\course\CourseService.ts" />
     <TypeScriptCompile Include="app\course\CourseControllers.ts" />
     <TypeScriptCompile Include="app\course\Model.ts" />
+    <TypeScriptCompile Include="app\entrollment\EnrollmentControllers.ts" />
+    <TypeScriptCompile Include="app\entrollment\EnrollmentService.ts" />
+    <TypeScriptCompile Include="app\entrollment\Model.ts" />
     <TypeScriptCompile Include="app\home\HomeControllers.ts" />
     <TypeScriptCompile Include="app\nav.controller.ts" />
     <TypeScriptCompile Include="app\student\Model.ts" />
@@ -154,9 +159,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\entrollment\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
