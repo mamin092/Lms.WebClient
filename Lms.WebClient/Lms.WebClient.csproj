@@ -70,12 +70,15 @@
   <ItemGroup>
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\home.css" />
     <Content Include="Content\prism.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\text-rotator.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="index_prev.html" />
+    <Content Include="partials\account\register.tpl.html" />
+    <Content Include="partials\account\singin.tpl.html" />
     <Content Include="partials\content\content-entry.tpl.html" />
     <Content Include="partials\course\course-detail.tpl.html" />
     <Content Include="partials\course\course-entry.tpl.html" />
@@ -120,11 +123,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\account\AccountService.ts" />
+    <TypeScriptCompile Include="app\account\Model.ts" />
+    <TypeScriptCompile Include="app\account\AccountControllers.ts" />
     <TypeScriptCompile Include="app\app.config.ts" />
+    <TypeScriptCompile Include="app\common\AppConstants.ts" />
     <TypeScriptCompile Include="app\common\BaseController.ts" />
     <TypeScriptCompile Include="app\common\BaseRepository.ts" />
     <TypeScriptCompile Include="app\common\BaseService.ts" />
     <TypeScriptCompile Include="app\common\Entity.ts" />
+    <TypeScriptCompile Include="app\common\UrlService.ts" />
     <TypeScriptCompile Include="app\content\ContentController.ts" />
     <TypeScriptCompile Include="app\content\ContentService.ts" />
     <TypeScriptCompile Include="app\content\Model.ts" />

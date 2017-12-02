@@ -15,7 +15,7 @@ var App;
         function EnrollmentService(url, baseRepository, q) {
             return _super.call(this, baseRepository, q, url.enrollment) || this;
         }
-        EnrollmentService.$inject = ["UrlService", "BaseRepository", "q"];
+        EnrollmentService.$inject = ["UrlService", "BaseRepository", "$q"];
         return EnrollmentService;
     }(App.BaseService));
     App.EnrollmentService = EnrollmentService;

@@ -19,6 +19,6 @@ var App;
         return ContentService;
     }(App.BaseService));
     App.ContentService = ContentService;
-    angular.module('app').service("ContentService", ContentService);
+    angular.module('app').service('ContentService', ContentService);
 })(App || (App = {}));
 //# sourceMappingURL=ContentService.js.map

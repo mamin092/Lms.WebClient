@@ -13,7 +13,7 @@ var App;
     var Category = /** @class */ (function () {
         function Category(id, categoryType) {
             this.id = id;
-            this.categoryType = categoryType;
+            this.catetoryType = categoryType;
         }
         return Category;
     }());

@@ -14,7 +14,7 @@ var App;
         __extends(EnrollmentController, _super);
         function EnrollmentController(service, studentService, courseService) {
             var _this = _super.call(this, service) || this;
-            console.log(" I am in Enrollment Controller");
+            console.log("I am in Enrollment Controller");
             _this.studentService = studentService;
             _this.courseService = courseService;
             if (_this.value != null) {
@@ -53,7 +53,7 @@ var App;
             r.isAscending = true;
             self.courseService.search(r).then(successCallback, errorCallback);
         };
-        EnrollmentController.prototype.addErollment = function () {
+        EnrollmentController.prototype.addEnrollment = function () {
             var self = this;
             var successCallback = function (response) {
                 alert('Enrollment added successfully');
@@ -62,15 +62,17 @@ var App;
             var errorCallback = function (error) {
                 console.log(error);
             };
-            self.model.courseId = self.selectedCourse.id;
             self.model.studentId = self.selectedStudent.id;
-            self.model.due = (self.selectedCourse.price <= self.model.paidTotal) ? 0 : (self.selectedCourse.price - self.model.paidTotal);
+            self.model.courseId = self.selectedCourse.id;
+            self.model.due = (self.selectedCourse.price <= self.model.paidTotal)
+                ? 0
+                : (self.selectedCourse.price - self.model.paidTotal);
             self.model.isPaid = (self.model.due <= 0) ? true : false;
             self.model.isCompleted = false;
             self.model.completedContent = 0;
             self.service.save(self.model).then(successCallback, errorCallback);
         };
-        EnrollmentController.prototype.setValu = function (v) {
+        EnrollmentController.prototype.setValue = function (v) {
             var self = this;
             self.value = v;
         };

@@ -1,7 +1,5 @@
 ﻿module App {
-
-    export
-        class ContentController extends BaseController<Content> {
+    export class ContentController extends BaseController<Content> {
 
         courseService: CourseService;
         selectedCourse: Course;
@@ -16,28 +14,24 @@
             this.reset();
             this.loadCourses();
             this.loadCategoryList();
-
-
         }
 
         loadCourses(): void {
             var self = this;
-            let successCallback = function (response) {
 
+            let successCallBack = function (response) {
                 self.courses = response.data;
-
-            };
-            let errorCallback = function (response) {
-
+            }
+            let errorCallBack = function (response) {
                 console.error(response);
-            };
+            }
 
             var requestModel = new BaseRequestModel();
             requestModel.page = -1;
             requestModel.orderBy = "Title";
             requestModel.isAscending = true;
-            self.courseService.search(requestModel).then(successCallback, errorCallback);
 
+            self.courseService.search(requestModel).then(successCallBack, errorCallBack);
         }
 
         loadCategoryList(): void {
@@ -45,22 +39,22 @@
             self.categoryList.push(new Category(1, "Video"));
             self.categoryList.push(new Category(2, "Audio"));
             self.categoryList.push(new Category(3, "Document"));
-
         }
 
         addContent(): void {
             var self = this;
-            let successCallback = (respons: any): void => {
+
+            let successCallback = (response: any): void => {
                 alert('Content added successfully');
                 self.reset();
-
             };
             let errorCallback = (error: any): void => {
                 console.log(error);
-
             };
+
             self.model.courseId = self.selectedCourse.id;
             self.model.category = self.selectedCategory.id;
+            self.model.url = self.model.url.replace('watch?v=', 'embed/');
             self.service.save(self.model).then(successCallback, errorCallback);
         }
 
@@ -69,8 +63,7 @@
             self.model = new Content();
         }
 
-
     }
-    angular.module('app').controller("ContentController", (ContentController) as any);
 
+    angular.module('app').controller('ContentController', (ContentController)as any);
 }

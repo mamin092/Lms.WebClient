@@ -4,7 +4,7 @@
 
         static $inject = ["$stateProvider", "$urlRouterProvider"];
 
-        constructor( stateProvider: angular.ui.IStateProvider, urlRouterProvider: angular.ui.IUrlRouterProvider) {
+        constructor(stateProvider: angular.ui.IStateProvider, urlRouterProvider: angular.ui.IUrlRouterProvider) {
 
             urlRouterProvider.otherwise("/");
             stateProvider.state("root",
@@ -49,25 +49,32 @@
                     templateUrl: "partials/course/course-entry.tpl.html",
                     controller: "CourseController",
                     controllerAs: "vm"
-                }).state("root.course-list",
+                }).state("root.course-detail",
                 {
-                    url: "/course-list",
-                    templateUrl: "partials/course/course-list.tpl.html",
-                    controller: "CoursesController",
+                    url: "/course-detail/:id",
+                    templateUrl: "partials/course/course-detail.tpl.html",
+                    controller: "CourseContentsController",
                     controllerAs: "vm"
-
-                }).state("root.content-entry", {
+                }).state("root.content-entry",
+                {
 
                     url: "/content-entry",
                     templateUrl: "partials/content/content-entry.tpl.html",
                     controller: "ContentController",
                     controllerAs: "vm"
-                }).state("root.enrollment-entry", {
+                }).state("root.enrollment-entry",
+                {
 
                     url: "/enrollment-entry",
-
                     templateUrl: "partials/enrollment/enrollment-entry.tpl.html",
                     controller: "EnrollmentController",
+                    controllerAs: "vm"
+                }).state("root.register",
+                {
+
+                    url: "/register",
+                    templateUrl: "partials/account/register.tpl.html",
+                    controller: "AccountController",
                     controllerAs: "vm"
                 });
         }

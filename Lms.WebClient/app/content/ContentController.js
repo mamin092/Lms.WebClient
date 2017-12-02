@@ -23,17 +23,17 @@ var App;
         }
         ContentController.prototype.loadCourses = function () {
             var self = this;
-            var successCallback = function (response) {
+            var successCallBack = function (response) {
                 self.courses = response.data;
             };
-            var errorCallback = function (response) {
+            var errorCallBack = function (response) {
                 console.error(response);
             };
             var requestModel = new App.BaseRequestModel();
             requestModel.page = -1;
             requestModel.orderBy = "Title";
             requestModel.isAscending = true;
-            self.courseService.search(requestModel).then(successCallback, errorCallback);
+            self.courseService.search(requestModel).then(successCallBack, errorCallBack);
         };
         ContentController.prototype.loadCategoryList = function () {
             var self = this;
@@ -43,7 +43,7 @@ var App;
         };
         ContentController.prototype.addContent = function () {
             var self = this;
-            var successCallback = function (respons) {
+            var successCallback = function (response) {
                 alert('Content added successfully');
                 self.reset();
             };
@@ -52,6 +52,7 @@ var App;
             };
             self.model.courseId = self.selectedCourse.id;
             self.model.category = self.selectedCategory.id;
+            self.model.url = self.model.url.replace('watch?v=', 'embed/');
             self.service.save(self.model).then(successCallback, errorCallback);
         };
         ContentController.prototype.reset = function () {
@@ -62,6 +63,6 @@ var App;
         return ContentController;
     }(App.BaseController));
     App.ContentController = ContentController;
-    angular.module('app').controller("ContentController", (ContentController));
+    angular.module('app').controller('ContentController', (ContentController));
 })(App || (App = {}));
 //# sourceMappingURL=ContentController.js.map

@@ -1,27 +1,22 @@
 ﻿module App {
-
-    export 
-        class Category {
-
+    export class Category {
         id: number;
-        categoryType: string;
+        catetoryType: string;
+
         constructor(id: number, categoryType: string) {
             this.id = id;
-            this.categoryType = categoryType;
+            this.catetoryType = categoryType;
         }
     }
-
-    export
-        class Content extends Entity {
+    export class Content extends Entity {
 
         constructor() {
             super();
-
-          
-
         }
+
         serial: number;
         title: string;
+        description: string;
         url: string;
         totalSeconds: number;
         tags: string;
@@ -29,5 +24,4 @@
         courseTitle: string;
         courseId: string;
     }
-
 }
