@@ -1,6 +1,9 @@
 ﻿module App {
     export abstract class BaseController<T> {
 
+
+        controllerUrl: string;
+
         model: T;
         service: BaseService<T>;
 

@@ -52,10 +52,28 @@ var App;
                 templateUrl: "partials/enrollment/enrollment-entry.tpl.html",
                 controller: "EnrollmentController",
                 controllerAs: "vm"
-            }).state("root.register", {
+            })
+                .state("root.register", {
                 url: "/register",
-                templateUrl: "partials/account/register.tpl.html",
-                controller: "AccountController",
+                templateUrl: "partials/account/signup.tpl.html",
+                controller: "NavController",
+                controllerAs: "vm"
+            }).state("root.signin", {
+                url: "/signin",
+                templateUrl: "partials/account/signin.tpl.html",
+                controller: "NavController",
+                controllerAs: "vm"
+            })
+                .state("root.role-entry", {
+                url: "/role-entry",
+                templateUrl: "partials/role/role-entry.tpl.html",
+                controller: "RoleController",
+                controllerAs: "vm"
+            })
+                .state("root.resource-entry", {
+                url: "/resource-entry",
+                templateUrl: "partials/resource/resource-entry.tpl.html",
+                controller: "ResourceController",
                 controllerAs: "vm"
             });
         }

@@ -1,10 +1,11 @@
 var App;
 (function (App) {
     var BaseService = /** @class */ (function () {
-        function BaseService(baseRepository, q, url) {
+        function BaseService(baseRepository, q, modelUrl) {
             this.baseRepository = baseRepository;
             this.q = q;
-            this.commandUrl = url;
+            this.baseApiUrl = App.AppConstants.BaseApiUrl;
+            this.modelUrl = modelUrl; /* teacher student course etc*/
         }
         BaseService.prototype.save = function (data) {
             var self = this;
@@ -22,7 +23,8 @@ var App;
             data.modified = new Date();
             data.createdBy = "me";
             data.modifiedBy = "me";
-            self.baseRepository.post(self.commandUrl, data).then(successCallback, errorCallback);
+            var url = self.baseApiUrl + self.modelUrl + "/Add";
+            self.baseRepository.post(url, data).then(successCallback, errorCallback);
             return deffered.promise;
         };
         BaseService.prototype.search = function (request) {
@@ -36,10 +38,10 @@ var App;
                 console.log(errorResponse);
                 deffered.reject(errorResponse);
             };
-            self.baseRepository.post(self.commandUrl + "Query", request).then(successCallback, errorCallback);
+            var url = self.baseApiUrl + self.modelUrl + "Query/Search";
+            self.baseRepository.post(url + "Query", request).then(successCallback, errorCallback);
             return deffered.promise;
         };
-        BaseService.$inject = ["BaseRepository", "$q"];
         return BaseService;
     }());
     App.BaseService = BaseService;

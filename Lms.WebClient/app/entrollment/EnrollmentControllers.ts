@@ -8,6 +8,7 @@
         selectedCourse: Course;
 
         static $inject = ["EnrollmentService", "StudentService", "CourseService"];
+
         constructor(service: EnrollmentService, studentService: StudentService, courseService: CourseService) {
 
             super(service);

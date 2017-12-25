@@ -27,7 +27,8 @@
         constructor(service: StudentService) {
             super(service);
 
-            console.log('I am student controller constructor')
+            console.log('I am student controller constructor');
+            this.search();
         }
 
     }

@@ -16,24 +16,25 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-6 col-md-6">
-                    <a class="logo" href="#">
-                        <img src="img/logo.svg">
+                    <a class="logo" href="#">                  
                         Virtual Tech Academy
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-6 text-right" ng-controller="NavController as vm">
-                    <div class="links-header l-inline-block mvm">
+                    <div ng-show="!vm.isSignedIn" class="links-header l-inline-block mvm">
                         <a href="#!/student-entry">Student</a>
                         <a href="#!/teacher-entry">Teachers</a>
                         <a href="#!/course-entry">Course</a>
-                        <a href="#!/entrollment-entry">Enrollment</a>
+                        <a href="#!/enrollment-entry">Enrollment</a>
                         <a href="#!/content-entry">Content</a>
+                       
+
                     </div>
                     <div class="section-auth l-inline-block mvm">
                         <!-- if not signed in -->
                         <div ng-show="!vm.isSignedIn">
-                            <a class="mhm l-inline-block" href="/#/register">Register</a>
-                            <a class="mhm l-inline-block" href="/#/signin">Signin</a>
+                            <a class="mhm l-inline-block" href="/#!/register">Register</a>
+                            <a class="mhm l-inline-block" href="/#!/signin">Signin</a>
                         </div>
                         <!-- /if not signed in -->
                         <div ng-show="vm.isSignedIn">
@@ -54,13 +55,30 @@
     <!-- marketing msg -->
     <div class="section-promo-msg pvm">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <p class="mbn">
-                        Get practical end to end online training on <span class="rotate">SQL, Basic .NET, Web API, AngularJS</span> from professionals in Bangla
-                    </p>
-                </div>
-            </div>
+
+          <div class="row" ng-controller="NavController as vm">
+              <div class="col-md-12 text-center">
+                  <p class="mbn">
+                      Get practical end to end online training on <span class="rotate">SQL, Basic .NET, Web API, AngularJS</span> from professionals in Bangla
+                  </p>
+              </div>
+              <div class="col-md-12 text-left">
+                  <div ng-show="!vm.isSignedIn" class="collapse navbar-collapse navbar-ex1-collapse">
+                      <ul class="">
+                          <li>
+                              <a href="/#!/role-entry"><i class="fa fa-fw fa-user-plus"></i> Role</a>
+                          </li>
+                          <li>
+                              <a href="/#!/resource-entry"><i class="fa fa-fw fa-file"></i> Resource</a>
+                          </li>
+                          <li>
+                              <a href="#"><i class="fa fa-fw fa fa-question-circle"></i> Permission</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <!-- /.navbar-collapse -->
+              </div>
+          </div>
         </div>
     </div>
     <!-- /marketing msg -->
@@ -112,31 +130,45 @@
     <script src="app/common/BaseRepository.js"></script>
   
     <!--models-->
+    <script src="app/common/AppConstants.js"></script>
     
     <script src="app/student/Model.js"></script>
     <script src="app/teacher/Model.js"></script>
     <script src="app/course/Model.js"></script>
     <script src="app/content/Model.js"></script>
     <script src="app/entrollment/Model.js"></script>
+    <script src="app/user/account/Model.js"></script>
+    <script src="app/user/role/Model.js"></script>
+    <script src="app/resource/Model.js"></script>
     <!--services-->
    
     <script src="app/student/StudentService.js"></script>
     <script src="app/course/CourseService.js"></script>
     <script src="app/teacher/TeacherService.js"></script>
-
+   
     <script src="app/content/ContentService.js"></script>
     <script src="app/entrollment/EnrollmentService.js"></script>
+    <script src="app/user/account/AccountService.js"></script>
+    <script src="app/user/role/RoleService.js"></script>
+    <script src="app/resource/ResourceService.js"></script>
+    <script src="app/common/Interceptors.js"></script>
+
+
     <!--controllers-->
 
     <script src="app/common/BaseController.js"></script>s
 
     <script src="app/nav.controller.js"></script>
     <script src="app/home/HomeControllers.js"></script>
+
     <script src="app/teacher/TeacherControllers.js"></script>
     <script src="app/student/StudentControllers.js"></script>
+   
     <script src="app/course/CourseControllers.js"></script>
     <script src="app/content/ContentController.js"></script>
     <script src="app/entrollment/EnrollmentControllers.js"></script>
+    <script src="app/user/role/RoleController.js"></script>
+    <script src="app/resource/ResourceService.js"></script>
 
 </body>
 </html>

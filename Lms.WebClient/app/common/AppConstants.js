@@ -4,8 +4,8 @@ var App;
         function AppConstants() {
         }
         AppConstants.BaseUrl = "http://localhost:11620/";
-        AppConstants.StatusOk = 200;
-        AppConstants.StatusBad = 400;
+        AppConstants.StatuasOk = 200;
+        AppConstants.StatuasBad = 400;
         AppConstants.BaseApiUrl = AppConstants.BaseUrl + "api/";
         AppConstants.UserAuthenticationUrl = AppConstants.BaseUrl + "token";
         return AppConstants;
